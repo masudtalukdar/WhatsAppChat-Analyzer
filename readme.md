@@ -52,6 +52,8 @@ This project leverages modern web technologies to ensure speed and responsivenes
 1. Open **WhatsApp** on your phone.
 2. Go to the chat you want to analyze -> **Settings** -> **Export Chat** -> **Without Media**.
 3. Upload the test_data `.txt` file to the [Live Website(https://img.shields.io/badge/Demo-Live%20Now-brightgreen?style=flat-square)(https://whatsappchatstory.vercel.app/)
+
+4. [![Live Demo](https://img.shields.io/badge/Demo-Live%20Now-brightgreen?style=flat-square)]([https://your-link-here.com](https://whatsappchatstory.vercel.app/)
 5. Explore your insights and download your PDF report!
 
 ---
