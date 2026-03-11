@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Chat Analyzer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📱 WhatsApp Chat Analyzer</h1>
+            <p>Upload your WhatsApp chat export and discover amazing insights!</p>
+        </div>
+
+        <div class="upload-section">
+            <div class="file-input-wrapper">
+                <input type="file" id="fileInput" accept=".txt" />
+                📁 Choose WhatsApp Chat File
+            </div>
+            
+            <div class="instructions">
+                <h3>How to export your WhatsApp chat:</h3>
+                <ol>
+                    <li>Open WhatsApp and go to the chat you want to analyze</li>
+                    <li>Tap on the contact/group name at the top</li>
+                    <li>Scroll down and tap "Export Chat"</li>
+                    <li>Choose "Without Media" for faster processing</li>
+                    <li>Save the .txt file and upload it here</li>
+                </ol>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            Analyzing your chat data...
+        </div>
+
+        <div id="results" class="hidden">
+            <div class="download-section">
+                <button id="downloadPDF" class="download-btn">
+                    📄 Download Analysis Report (PDF)
+                </button>
+                <div class="download-info">
+                    Generate a comprehensive PDF report with all insights and charts
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Messages</h3>
+                    <div class="number" id="totalMessages">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Participants</h3>
+                    <div class="number" id="totalParticipants">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Most Active Day</h3>
+                    <div class="number" id="mostActiveDay">-</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Chat Duration</h3>
+                    <div class="number" id="chatDuration">0 days</div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>📊 Messages Over Time</h3>
+                <div class="chart-wrapper">
+                    <canvas id="messagesChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>👥 Most Active Participants</h3>
+                <div class="chart-wrapper">
+                    <canvas id="participantsChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>🕐 Activity by Hour</h3>
+                <div class="chart-wrapper">
+                    <canvas id="hourlyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>📅 Activity by Day of Week</h3>
+                <div class="chart-wrapper">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>💬 Most Frequent Words</h3>
+                <div class="word-cloud" id="wordCloud"></div>
+            </div>
+
+            <div class="chart-container">
+                <h3>📈 Message Length Distribution</h3>
+                <div class="chart-wrapper">
+                    <canvas id="lengthChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>💖 Conversation Sentiment Flow</h3>
+                <div class="sentiment-flow" id="sentimentFlow"></div>
+            </div>
+
+            <div class="chart-container">
+                <h3>🎭 Emoji Usage Analysis</h3>
+                <div class="emoji-grid" id="emojiGrid"></div>
+            </div>
+
+            <div class="chart-container">
+                <h3>🔥 Chat Heatmap - Activity Intensity</h3>
+                <div class="heatmap-container">
+                    <div class="heatmap-legend">
+                        <span>Less Active</span>
+                        <div class="legend-gradient"></div>
+                        <span>More Active</span>
+                    </div>
+                    <div class="heatmap" id="activityHeatmap"></div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>⚡ Response Time Analysis</h3>
+                <div class="chart-wrapper">
+                    <canvas id="responseTimeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>🌟 Conversation Patterns</h3>
+                <div class="patterns-grid">
+                    <div class="pattern-item">
+                        <div class="pattern-icon">🌅</div>
+                        <div class="pattern-title">Early Bird</div>
+                        <div class="pattern-value" id="earlyBird">-</div>
+                        <div class="pattern-desc">Most active before 8 AM</div>
+                    </div>
+                    <div class="pattern-item">
+                        <div class="pattern-icon">🦉</div>
+                        <div class="pattern-title">Night Owl</div>
+                        <div class="pattern-value" id="nightOwl">-</div>
+                        <div class="pattern-desc">Most active after 10 PM</div>
+                    </div>
+                    <div class="pattern-item">
+                        <div class="pattern-icon">📱</div>
+                        <div class="pattern-title">Quick Responder</div>
+                        <div class="pattern-value" id="quickResponder">-</div>
+                        <div class="pattern-desc">Fastest average response</div>
+                    </div>
+                    <div class="pattern-item">
+                        <div class="pattern-icon">📝</div>
+                        <div class="pattern-title">Essay Writer</div>
+                        <div class="pattern-value" id="essayWriter">-</div>
+                        <div class="pattern-desc">Longest average messages</div>
+                    </div>
+                    <div class="pattern-item">
+                        <div class="pattern-icon">😂</div>
+                        <div class="pattern-title">Emoji Master</div>
+                        <div class="pattern-value" id="emojiMaster">-</div>
+                        <div class="pattern-desc">Uses most emojis</div>
+                    </div>
+                    <div class="pattern-item">
+                        <div class="pattern-icon">🔥</div>
+                        <div class="pattern-title">Conversation Starter</div>
+                        <div class="pattern-value" id="conversationStarter">-</div>
+                        <div class="pattern-desc">Initiates most conversations</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>📊 Message Type Distribution</h3>
+                <div class="chart-wrapper">
+                    <canvas id="messageTypeChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-container">
+                <h3>🎯 Peak Activity Moments</h3>
+                <div class="peak-moments" id="peakMoments"></div>
+            </div>
+        </div>
+
+
+        <!-- /////////////////////////// -->
+        <footer class="app-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="Logo">
+                <span>Chat Insights</span>
+            </div>
+            <p>Transforming raw chat data into visual stories.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Privacy Priority</h4>
+            <p>Your data never leaves your device. All processing is done locally in your browser.</p>
+        </div>
+
+        <div class="footer-section">
+            <h4>Developer</h4>
+            <p>Designed and Developed by <br><strong>Masud Talukdar</strong></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 WhatsApp Chat Analyzer | Built for Data Enthusiasts</p>
+    </div>
+</footer>
+         <!-- ////////////////////////// -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
