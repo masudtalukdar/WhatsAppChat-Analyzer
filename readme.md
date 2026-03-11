@@ -56,15 +56,9 @@ This project leverages modern web technologies to ensure speed and responsivenes
 ---
 ### 🖼️ Results Preview
 
-**The Analytics Dashboard**
-> Comprehensive breakdown of all participants and message volume.
-![Dashboard Preview](./assets/dashboard-main.png)
-
 **Sentiments & Activity**
-> Visualizing the "vibe" and the busiest hours of your chat history.
 <p align="center">
   <img src="./assets/Dashboard.png" width="45%" />
-  <img src="./assets/heatmap.png" width="45%" />
 </p>
 ---
 
