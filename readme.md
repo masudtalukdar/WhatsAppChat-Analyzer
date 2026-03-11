@@ -1,12 +1,8 @@
-This is a professional README template designed to showcase your project. It highlights your role as the developer and the sophisticated analytics your app provides.
-
----
-
-# 📱 WhatsApp Chat Insights
+# 📱 WhatsApp Chat Analyzer
 
 ### *Unveil the hidden stories in your conversations.*
 
-**WhatsApp Chat Insights** is a high-performance web application that transforms raw `.txt` chat exports into beautiful, interactive data visualizations. Built with privacy in mind, all processing happens locally in your browser—your personal data never touches a server.
+**WhatsApp Chat Analyzer** is a high-performance web application that transforms raw `.txt` chat exports into beautiful, interactive data visualizations. Built with privacy in mind, all processing happens locally in your browser—your personal data never touches a server.
 
 ---
 
@@ -55,19 +51,15 @@ This project leverages modern web technologies to ensure speed and responsivenes
 
 1. Open **WhatsApp** on your phone.
 2. Go to the chat you want to analyze -> **Settings** -> **Export Chat** -> **Without Media**.
-3. Upload the resulting `.txt` file to the [Live Dashboard](https://www.google.com/search?q=YOUR_LIVE_LINK_HERE).
+3. Upload the test_data `.txt` file to the [Live Dashboard](https://www.google.com/search?q=YOUR_LIVE_LINK_HERE).
 4. Explore your insights and download your PDF report!
 
 ---
 
 ## 👨‍💻 Developed By
 
-**Masud Talukdar** *Full Stack Developer & Data Enthusiast*
+**Masud Talukdar**
 
 * [GitHub](https://www.google.com/search?q=YOUR_GITHUB_LINK)
 * [LinkedIn](https://www.google.com/search?q=YOUR_LINKEDIN_LINK)
-* [Portfolio](https://www.google.com/search?q=YOUR_PORTFOLIO_LINK)
-
 ---
-
-### Would you like me to help you set up the GitHub repository so this README looks perfect on your profile?
