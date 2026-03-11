@@ -33,7 +33,7 @@ This project leverages modern web technologies to ensure speed and responsivenes
 * **Frontend:** HTML5, CSS3 (Flexbox/Grid), JavaScript (ES6+)
 * **Charts:** [Chart.js](https://www.chartjs.org/) for high-performance, interactive data rendering.
 * **PDF Generation:** [jsPDF](https://github.com/parallax/jsPDF) and [html2canvas](https://html2canvas.hertzen.com/) for high-resolution report exports.
-* **Deployment:** [GitHub Pages / Vercel / Netlify]
+* **Deployment:** Vercel
 
 ---
 
@@ -51,7 +51,7 @@ This project leverages modern web technologies to ensure speed and responsivenes
 
 1. Open **WhatsApp** on your phone.
 2. Go to the chat you want to analyze -> **Settings** -> **Export Chat** -> **Without Media**.
-3. Upload the test_data `.txt` file to the [Live Dashboard](https://www.google.com/search?q=YOUR_LIVE_LINK_HERE).
+3. Upload the test_data `.txt` file to the [Live Website([https://www.google.com/search?q=YOUR_LIVE_LINK_HERE](https://whatsappchatstory.vercel.app/)).
 4. Explore your insights and download your PDF report!
 
 ---
@@ -60,6 +60,6 @@ This project leverages modern web technologies to ensure speed and responsivenes
 
 **Masud Talukdar**
 
-* [GitHub](https://www.google.com/search?q=YOUR_GITHUB_LINK)
-* [LinkedIn](https://www.google.com/search?q=YOUR_LINKEDIN_LINK)
+* [GitHub](https://github.com/masudtalukdar)
+* [LinkedIn](https://www.linkedin.com/in/masudtalukdar/)
 ---
