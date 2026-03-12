@@ -56,9 +56,15 @@ This project leverages modern web technologies to ensure speed and responsivenes
 ---
 ### 🖼️ Results Preview
 
-**Sentiments & Activity**
 <p align="center">
   <img src="./assets/Dashboard.png" width="45%" />
+  <img src="./assets/Most Active Participants.png" width="45%" />
+  <img src="./assets/Activity by Hour.png" width="45%" />
+  <img src="./assets/Most Frequent Words.png" width="45%" />
+  <img src="./assets/Emoji.png" width="45%" />
+  <img src="./assets/Chat Heatmap.png" width="45%" />
+  <img src="./assets/Peak Activity.png" width="45%" />
+  <img src="./assets/Activity by Day of Week.png" width="45%" />
 </p>
 ---
 
