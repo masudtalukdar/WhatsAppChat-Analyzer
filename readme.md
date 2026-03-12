@@ -1,4 +1,4 @@
-# 📱 WhatsApp Chat Analyzer
+# 📱 WhatsApp Chat Analyzer [![Live Website](https://img.shields.io/badge/Demo-Live%20Now-brightgreen?style=flat-square)](https://whatsappchatstory.vercel.app)
 
 ### *Unveil the hidden stories in your conversations.*
 
